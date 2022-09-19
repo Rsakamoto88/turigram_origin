@@ -1,0 +1,50 @@
+<!--<h1>Results#index</h1>-->
+<!--<p>Find me in app/views/results/index.html.erb</p>-->
+
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        投稿一覧
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @results.each do |result| %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <!--投稿画像　クリックで投稿詳細へ-->
+                <%= link_to result_path(result) do %>
+                  <%= attachment_image_tag result, :image %>
+                <% end %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <%= attachment_image_tag result.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <!--(result.user.id)のidは不明？-->
+                  <div class="title"><%=link_to result.user.username, user_path(result.user) %></div>
+                </div>
+              </div>
+
+              <div class="content">
+                <time><%= result.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -1,4 +1,4 @@
-<!--デザイン関係-->
+<!--アプリ全体デザイン関係-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -32,7 +32,7 @@
         <%= link_to root_path, class: "navbar-item" do %>
           <h1 class="title is-4" style="font-family: cursive;">Turigram</h1>
         <% end %>
-        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
           <span></span>
           <span></span>
           <span></span>
@@ -42,12 +42,20 @@
       <% if user_signed_in? %>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-item">
+            <%= link_to "投稿一覧", results_path, class: "navbar-item button is-warning is-light" %>
+          </div> 
           <div class="navbar-item">
+            <%= link_to "新規投稿", new_result_path, class: "navbar-item button is-warning is-light" %>
+          </div> 
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
                 <p class="control">
+                  <%= link_to "釣りグラマー一覧", users_path, class: " button is-warning is-light" %>
+                </p>
                 <p class="control">
+                  <%= link_to "マイページへ", user_path(current_user), class: " button is-warning is-light" %>
+                </p>  
                 <p class="control">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
                 </p>
@@ -58,10 +66,15 @@
       <% else %>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-item">
+            <%= link_to "投稿一覧", results_path, class: "navbar-item button is-warning is-light" %>
+          </div> 
           <div class="navbar-item">
+            <%= link_to "釣りグラマ一覧", users_path, class: "navbar-item button is-warning is-light" %>
+          </div>
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
+                
                 <p class="control">
                   <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
                 </p>

@@ -1,7 +1,47 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<!--タイムライン画面のデザイン関係-->
 
-<!--@usersから一人一人のuserを取り出して名前を表示する記述-->
-<% @users.each do |user| %>
-<%= user.username %>
-<% end %>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        釣りグラマー一覧
+      </h1>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <!--each文で@usersから一人一人のuserを取り出して名前を表示する-->
+      <% @users.each do |user| %>
+        <div class="column is-3">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-image">
+                <figure class="image">
+                    <!--画像タップでuserの詳細画面に移動する記述-->
+                    <%= link_to user_path(user) do %>
+                        <%= attachment_image_tag user, :profile_image, fallback: "no-image.png" %>
+                    <% end %>
+                </figure>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <!--ユーザー名をタップしてuserの詳細画面に移動する記述-->
+                  <div class="title"><%= link_to user.username ,user_path(user) %></div>
+                </div>
+              </div>
+              <div class="content">
+                投稿数：<%= user.results.count %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+

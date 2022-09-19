@@ -15,3 +15,24 @@
  */
 
 @import  "bulma" ;
+
+.notification:not(:last-child){
+	margin-bottom: 0;
+}
+
+// プロフィール画像を円形に
+.profile_image {
+ border-radius: 50%;
+}
+
+// ホーム画面の写真
+.main-image {
+	height: 940px;
+	background-image: url(turigram.jp.jpeg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	// 下記オリジナル
+	// background-position: center;
+	background-position: top center;
+}
+

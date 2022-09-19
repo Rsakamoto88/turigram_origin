@@ -1,0 +1,27 @@
+
+チュートリアル
+環境：
+AWS Cloud９
+ruby:2.5.7
+Rails:5.2.4.1　⇨ ５.２.６で使用
+SQLite3
+
+$ cd turigram で移動
+ec2-user:~/environment/turigram (master)　$　となる
+
+現在のrubyバージョンを変更
+・ruby 2.6.3　から　2.5.7にしたい
+$ rvm list　でリストを表示
+　# => - current
+　# =* - current && default
+　# * - default
+・バージョン指定でインストール
+$ rvm install 2.5.7
+・再インストールはこれ
+$ rvm reinstall ruby-2.5.7
+・再起動後も同じバージョンを使用する（実行後も元の2.6.3に戻ることがある）
+$ rvm --default use 2.5.7
+
+
+
+
